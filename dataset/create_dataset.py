@@ -10,7 +10,7 @@ def create_dataset():
 
     df = convert_binance_data(raw_data)
     df = add_technical_indicators(df)
-    save_to_csv(df, "bitcoin_binance_30min_180days.csv")
+    save_to_csv(df, "bitcoin_binance_30min_1_1_2018.csv")
 
 if __name__ == "__main__":
     create_dataset()
