@@ -1,1 +1,11 @@
 .idea
+LSTM_Model/venv
+
+Predict_BTC/bin
+Predict_BTC/obj
+Predict_BTC/appsettings.json
+Predict_BTC/global.json
+Predict_BTC/appsettings.Development.json
+Predict_BTC/Properties
+Predict_BTC/Predict_BTC.csproj
+
