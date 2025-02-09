@@ -1,0 +1,30 @@
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+def load_data(filepath):
+    df = pd.read_csv(filepath, parse_dates=['Timestamp'])
+    df.sort_values(by='Timestamp', inplace=True)
+    return df
+
+
+def preprocess_data(df, window_size=20, h=12):
+    scaler = MinMaxScaler()
+    feature_columns = ['Open', 'High', 'Low', 'Close', 'Volume', 'MA_5', 'MA_10', 'RSI', 'MACD', 'MACD_signal',
+                       'MACD_hist']
+    scaled_features = scaler.fit_transform(df[feature_columns])
+
+    df['target'] = (df['Close'].shift(-h) / df['Close'] - 1) >= 0.02
+    df['target'] = df['target'].astype(int)
+
+    X, y = [], []
+    for i in range(len(scaled_features) - window_size - h):
+        X.append(scaled_features[i:i + window_size])
+        y.append(df['target'].iloc[i + window_size])
+
+    return np.array(X), np.array(y), scaler
+
+
+def split_data(X, y, test_size=0.2):
+    return train_test_split(X, y, test_size=test_size, shuffle=False)

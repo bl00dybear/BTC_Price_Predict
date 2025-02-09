@@ -1,0 +1,6 @@
+BINANCE_URL = "https://api.binance.com/api/v3/klines"
+SYMBOL = "BTCUSDT"
+INTERVAL = "30m"
+LIMIT = 1000
+DAYS = 2600
+CSV_PATH = '/home/sebi/BTC_Price_Predict/LSTM_Model/dataset/bitcoin_binance_30min_1_1_2018.csv'
