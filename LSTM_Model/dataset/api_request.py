@@ -1,7 +1,7 @@
 import requests
 import time
 import datetime
-from config import BINANCE_URL, SYMBOL, INTERVAL, LIMIT, DAYS
+from LSTM_Model.config import BINANCE_URL, SYMBOL, INTERVAL, LIMIT, DAYS
 
 def get_binance_data(start_time=None):
     params = {

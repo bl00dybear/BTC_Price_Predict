@@ -5,10 +5,8 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 from fastapi import FastAPI
+from LSTM_Model.config import MODEL_PATH, SCALER_PATH
 
-
-MODEL_PATH = '/home/sebi/BTC_Price_Predict/LSTM_Model/model/lstm_btc_model_30_2.h5'
-SCALER_PATH = '/home/sebi/BTC_Price_Predict/LSTM_Model/model/scaler.pkl'
 
 app = FastAPI()
 
@@ -37,4 +35,3 @@ def predict(data: dict):
     except Exception as e:
         return {"error": str(e)}
 
-# Pornire server FastAPI: uvicorn api:app --host 0.0.0.0 --port 8000

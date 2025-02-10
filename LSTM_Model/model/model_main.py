@@ -1,11 +1,10 @@
-# from LSTM_Model.config import CSV_PATH
 from preprocess_data import *
 from build_model import *
 from train_model import *
 from evaluate_model import *
 from predict import *
+from LSTM_Model.config import CSV_PATH
 
-CSV_PATH = '/home/sebi/BTC_Price_Predict/LSTM_Model/dataset/bitcoin_binance_30min_1_1_2018.csv'
 
 
 df = load_data(CSV_PATH)
