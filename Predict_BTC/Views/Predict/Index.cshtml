@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "BTC Prediction";
+}
+
+<h2>Predicție Preț Bitcoin</h2>
+
+<form method="post" asp-controller="Predict" asp-action="Predict">
+    <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+
+@if (ViewBag.Probability != null)
+{
+    <div class="alert alert-info mt-3">
+        Probabilitatea ca BTC să crească cu 2%: <strong>@ViewBag.Probability</strong>
+    </div>
+}

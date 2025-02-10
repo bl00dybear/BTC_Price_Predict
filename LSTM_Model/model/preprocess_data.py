@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
@@ -18,12 +19,15 @@ def preprocess_data(df, window_size=20, h=12):
     df['target'] = (df['Close'].shift(-h) / df['Close'] - 1) >= 0.02
     df['target'] = df['target'].astype(int)
 
-    X, y = [], []
+    x, y = [], []
     for i in range(len(scaled_features) - window_size - h):
-        X.append(scaled_features[i:i + window_size])
+        x.append(scaled_features[i:i + window_size])
         y.append(df['target'].iloc[i + window_size])
 
-    return np.array(X), np.array(y), scaler
+    with open("scaler.pkl", "wb") as f:
+        pickle.dump(scaler, f)
+
+    return np.array(x), np.array(y), scaler
 
 
 def split_data(X, y, test_size=0.2):
