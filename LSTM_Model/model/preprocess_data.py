@@ -10,13 +10,13 @@ def load_data(filepath):
     return df
 
 
-def preprocess_data(df, window_size=20, h=12):
+def preprocess_data(df, window_size=20, h=1):
     scaler = MinMaxScaler()
     feature_columns = ['Open', 'High', 'Low', 'Close', 'Volume', 'MA_5', 'MA_10', 'RSI', 'MACD', 'MACD_signal',
                        'MACD_hist']
     scaled_features = scaler.fit_transform(df[feature_columns])
 
-    df['target'] = (df['Close'].shift(-h) / df['Close'] - 1) >= 0.02
+    df['target'] = (df['Close'].shift(-h) / df['Close'] - 1) >= 0.01
     df['target'] = df['target'].astype(int)
 
     x, y = [], []

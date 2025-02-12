@@ -3,7 +3,7 @@ from build_model import *
 from train_model import *
 from evaluate_model import *
 from predict import *
-from LSTM_Model.config import CSV_PATH
+from model_config import CSV_PATH
 
 
 
@@ -18,4 +18,5 @@ accuracy = evaluate_model(model, X_test, y_test)
 print(f'Accuracy: {accuracy:.2f}')
 
 probability = predict_probability(model, X_test[-1])
+print(X_test[-1])
 print(f'Probabilitatea creșterii BTC cu 2%: {probability:.2f}')

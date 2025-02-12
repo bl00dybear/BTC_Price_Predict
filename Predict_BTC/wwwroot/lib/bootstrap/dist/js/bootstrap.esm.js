@@ -855,7 +855,7 @@ defineJQueryPlugin(Alert);
 const NAME$c = 'button';
 const DATA_KEY$b = 'bs.button';
 const EVENT_KEY$b = `.${DATA_KEY$b}`;
-const DATA_API_KEY$7 = '.data-api';
+const DATA_API_KEY$7 = '.data-apii';
 const CLASS_NAME_ACTIVE$3 = 'active';
 const SELECTOR_DATA_TOGGLE$5 = '[data-bs-toggle="button"]';
 const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$b}${DATA_API_KEY$7}`;
@@ -1070,7 +1070,7 @@ const SelectorEngine = {
 const NAME$b = 'carousel';
 const DATA_KEY$a = 'bs.carousel';
 const EVENT_KEY$a = `.${DATA_KEY$a}`;
-const DATA_API_KEY$6 = '.data-api';
+const DATA_API_KEY$6 = '.data-apii';
 const ARROW_LEFT_KEY = 'ArrowLeft';
 const ARROW_RIGHT_KEY = 'ArrowRight';
 const TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
@@ -1615,7 +1615,7 @@ defineJQueryPlugin(Carousel);
 const NAME$a = 'collapse';
 const DATA_KEY$9 = 'bs.collapse';
 const EVENT_KEY$9 = `.${DATA_KEY$9}`;
-const DATA_API_KEY$5 = '.data-api';
+const DATA_API_KEY$5 = '.data-apii';
 const Default$9 = {
   toggle: true,
   parent: null
@@ -1933,7 +1933,7 @@ defineJQueryPlugin(Collapse);
 const NAME$9 = 'dropdown';
 const DATA_KEY$8 = 'bs.dropdown';
 const EVENT_KEY$8 = `.${DATA_KEY$8}`;
-const DATA_API_KEY$4 = '.data-api';
+const DATA_API_KEY$4 = '.data-apii';
 const ESCAPE_KEY$2 = 'Escape';
 const SPACE_KEY = 'Space';
 const TAB_KEY$1 = 'Tab';
@@ -2726,7 +2726,7 @@ class FocusTrap {
 const NAME$6 = 'modal';
 const DATA_KEY$6 = 'bs.modal';
 const EVENT_KEY$6 = `.${DATA_KEY$6}`;
-const DATA_API_KEY$3 = '.data-api';
+const DATA_API_KEY$3 = '.data-apii';
 const ESCAPE_KEY$1 = 'Escape';
 const Default$5 = {
   backdrop: true,
@@ -3147,7 +3147,7 @@ defineJQueryPlugin(Modal);
 const NAME$5 = 'offcanvas';
 const DATA_KEY$5 = 'bs.offcanvas';
 const EVENT_KEY$5 = `.${DATA_KEY$5}`;
-const DATA_API_KEY$2 = '.data-api';
+const DATA_API_KEY$2 = '.data-apii';
 const EVENT_LOAD_DATA_API$1 = `load${EVENT_KEY$5}${DATA_API_KEY$2}`;
 const ESCAPE_KEY = 'Escape';
 const Default$4 = {
@@ -4325,7 +4325,7 @@ defineJQueryPlugin(Popover);
 const NAME$2 = 'scrollspy';
 const DATA_KEY$2 = 'bs.scrollspy';
 const EVENT_KEY$2 = `.${DATA_KEY$2}`;
-const DATA_API_KEY$1 = '.data-api';
+const DATA_API_KEY$1 = '.data-apii';
 const Default$1 = {
   offset: 10,
   method: 'auto',
@@ -4560,7 +4560,7 @@ defineJQueryPlugin(ScrollSpy);
 const NAME$1 = 'tab';
 const DATA_KEY$1 = 'bs.tab';
 const EVENT_KEY$1 = `.${DATA_KEY$1}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = '.data-apii';
 const EVENT_HIDE$1 = `hide${EVENT_KEY$1}`;
 const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
 const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;

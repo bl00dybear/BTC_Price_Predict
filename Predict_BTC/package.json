@@ -1,0 +1,17 @@
+{
+  "name": "predict_btc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bl00dybear/BTC_Price_Predict.git"
+  },
+  "private": true,
+  "dependencies": {
+    "three": "^0.173.0"
+  }
+}

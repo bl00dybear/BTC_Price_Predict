@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -24,22 +23,39 @@ namespace BTCPricePredictor.Controllers
         [HttpPost]
         public async Task<IActionResult> Predict()
         {
-            // Datele de intrare pentru model (un exemplu de secvență)
-            var inputData = new
+            try
             {
-                features = new double[][] {
-                    new double[] { 12927.01, 13245.0, 12833.04, 13211.39, 298.22, 13060.99, 13187.07, 44.17, -133.85, -81.76, -52.09 }
+                // Apelăm API-ul Python (nu mai trimitem `null`, deoarece API-ul ia singur datele)
+                var response = await _httpClient.PostAsync("http://127.0.0.1:8000/predict/", null);
+
+                // Verificăm dacă API-ul a răspuns cu succes
+                if (!response.IsSuccessStatusCode)
+                {
+                    ViewBag.Error = "Eroare la API-ul de predicție!";
+                    return View("Index");
                 }
-            };
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(inputData), Encoding.UTF8, "application/json");
+                // Extragem și interpretăm răspunsul
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<dynamic>(jsonResponse);
 
-            // Apelăm API-ul Python
-            var response = await _httpClient.PostAsync("http://127.0.0.1:8000/predict/", jsonContent);
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-
-            var result = JsonConvert.DeserializeObject<dynamic>(jsonResponse);
-            ViewBag.Probability = result?.probability;
+                if (result?.probability != null)
+                {
+                    ViewBag.Probability = (double)result.probability;
+                }
+                else
+                {
+                    ViewBag.Error = "API-ul a returnat un rezultat null.";
+                }
+            }
+            catch (HttpRequestException)
+            {
+                ViewBag.Error = "Nu se poate contacta API-ul Python.";
+            }
+            catch (JsonException)
+            {
+                ViewBag.Error = "Eroare la procesarea răspunsului API.";
+            }
 
             return View("Index");
         }

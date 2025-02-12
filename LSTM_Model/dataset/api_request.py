@@ -21,7 +21,7 @@ def get_binance_data(start_time=None):
 
 def fetch_full_binance_data():
     all_data = []
-    custom_start_date = datetime.datetime(2018, 1, 1)
+    custom_start_date = datetime.datetime(2017, 3, 1)
     start_time = int(custom_start_date.timestamp() * 1000)
     total_candles = DAYS * 48
     request_count = 0
