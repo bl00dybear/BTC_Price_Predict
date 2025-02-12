@@ -2,24 +2,26 @@
     ViewBag.Title = "Predict Bitcoin Price";
 }
 
-<h2>Predicție Bitcoin</h2>
+<div class="container section bg-black col-md-12 w-100 text-white" style="height: 88vh; margin-top: 5vh; margin-bottom: 5vh; width:100%">
+    <p>Apasă pe buton pentru a obține probabilitatea ca prețul BTC să crească cu cel puțin 1% în următoarele 30 de minute.</p>
 
-<p>Apasă pe buton pentru a obține probabilitatea ca prețul BTC să crească cu cel puțin 1% în următoarele 12 ore.</p>
+    <form method="post" asp-controller="Predict" asp-action="Predict">
+        <button type="submit" class="btn btn-primary">Obține Predicția</button>
+    </form>
 
-<form method="post" asp-controller="Predict" asp-action="Predict">
-    <button type="submit" class="btn btn-primary">Obține Predicția</button>
-</form>
+    @if (ViewBag.Probability != null)
+    {
+        <div class="alert alert-success mt-3">
+            <strong>Probabilitate:</strong> @ViewBag.Probability.ToString("P2")
+            <!-- Formatează ca procent (ex: 75.00%) -->
+        </div>
+    }
+    else if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            <strong>Eroare:</strong> @ViewBag.Error
+        </div>
+    }
 
-@if (ViewBag.Probability != null)
-{
-    <div class="alert alert-success mt-3">
-        <strong>Probabilitate:</strong> @ViewBag.Probability.ToString("P2") 
-        <!-- Formatează ca procent (ex: 75.00%) -->
-    </div>
-}
-else if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger mt-3">
-        <strong>Eroare:</strong> @ViewBag.Error
-    </div>
-}
+</div>
+

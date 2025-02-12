@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Volgarie'; /* Numele pe care îl vei folosi în CSS */
+  font-family: 'Volgarie'; 
   src: url('fonts/volgarie/Volgarie.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -8,48 +8,48 @@ html {
   font-size: 14px;
   position: relative;
   min-height: 100%;
-  background-color: black ;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  margin: 0;
+  height: 100%;
+  font-family: 'Volgarie','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 10%,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
   color: #333;
-  padding-top: 70px; /* Spațiu pentru navbar fixat în partea de sus */
-  
+
 }
 
 .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /*border: 1px solid #ccc; !* Contur pentru vizualizare *!*/
   border-radius: 4px;
-  /*background-color: rgba(255, 255, 255, 0.1); !* Ușor transparent *!*/
-
-  /* Adaugă umbra albă în jurul secțiunii */
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
 }
 .section-left {
   position: relative;
-  /*background-color: rgba(0, 0, 0, 0.5); !* Fundal semi-transparent pentru contrast *!*/
   padding: 20px;
   min-height: 300px;
-  color: white; /* Asigură contrastul textului */
-  overflow: hidden; /* Previne scroll nedorit */
+  color: white; 
+  overflow: hidden; 
 }
 
 .section-left video {
   position: absolute;
-  /*bottom: 0;*/
   right: -30%;
   width: auto;
   height: 60%;
   object-fit: cover;
 }
 .section-right-top {
-  background-color: #e9ecef; /* Culoare de fundal pentru secțiunea dreapta-sus */
+  background-color: #e9ecef; 
 }
 .section-right-bottom {
-  background-color: #dee2e6; /* Culoare de fundal pentru secțiunea dreapta-jos */
+  background-color: #dee2e6; 
 }

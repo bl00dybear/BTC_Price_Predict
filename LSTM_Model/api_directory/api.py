@@ -7,6 +7,7 @@ from api_config import MODEL_PATH, SCALER_PATH
 
 app = FastAPI()
 
+
 model = tf.keras.models.load_model(MODEL_PATH)
 with open(SCALER_PATH, "rb") as f:
     scaler = pickle.load(f)

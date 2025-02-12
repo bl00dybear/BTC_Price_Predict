@@ -24,7 +24,7 @@ def preprocess_data(df, window_size=20, h=1):
         x.append(scaled_features[i:i + window_size])
         y.append(df['target'].iloc[i + window_size])
 
-    with open("scaler.pkl", "wb") as f:
+    with open("btc_30m_1/scaler.pkl", "wb") as f:
         pickle.dump(scaler, f)
 
     return np.array(x), np.array(y), scaler
