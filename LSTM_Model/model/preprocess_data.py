@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
+from model_config import SCALER_PATH
 
 def load_data(filepath):
     df = pd.read_csv(filepath, parse_dates=['Timestamp'])
@@ -10,7 +11,7 @@ def load_data(filepath):
     return df
 
 
-def preprocess_data(df, window_size=20, h=1):
+def preprocess_data(df,interval,date, window_size=20, h=1):
     scaler = MinMaxScaler()
     feature_columns = ['Open', 'High', 'Low', 'Close', 'Volume', 'MA_5', 'MA_10', 'RSI', 'MACD', 'MACD_signal',
                        'MACD_hist']
@@ -24,7 +25,9 @@ def preprocess_data(df, window_size=20, h=1):
         x.append(scaled_features[i:i + window_size])
         y.append(df['target'].iloc[i + window_size])
 
-    with open("btc_30m_1/scaler.pkl", "wb") as f:
+    scaler_path = SCALER_PATH + interval+'_'+date+'_'+str(window_size)+'wsize.pkl'
+
+    with open(scaler_path, "wb") as f:
         pickle.dump(scaler, f)
 
     return np.array(x), np.array(y), scaler

@@ -3,7 +3,7 @@ SYMBOL = "BTCUSDT"
 INTERVAL = "30m"
 LIMIT = 1000
 DAYS = 2900
-# CSV_PATH = '/home/sebi/BTC_Price_Predict/LSTM_Model/dataset/bitcoin_binance_30min_1_1_2018.csv'
+
 CSV_PATH = '../dataset/datasets/bitcoin_binance_'
-MODEL_PATH = '/LSTM_Model/model/btc_4h_1/lstm_btc_model_4_1.h5'
-SCALER_PATH = '/LSTM_Model/model/btc_4h_1/scaler.pkl'
+MODEL_PATH = 'models/btc_model_'
+SCALER_PATH = 'scales/btc_scale_'

@@ -3,7 +3,6 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout
 
 
 def build_lstm_model(input_shape):
-    """Construiește modelul LSTM"""
     model = Sequential([
         LSTM(64, return_sequences=True, input_shape=input_shape),
         Dropout(0.2),
