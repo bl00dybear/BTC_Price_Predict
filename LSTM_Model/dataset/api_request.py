@@ -2,13 +2,15 @@ import requests
 from datetime import datetime
 import re
 
-from model_cfg import BINANCE_URL, SYMBOL, DAYS,LIMIT,MINUTES_PER_DAY
+from dataset_config import BINANCE_URL, SYMBOL, DAYS,LIMIT,MINUTES_PER_DAY
 
 def get_binance_data(interval_,start_time=None):
+    # print(interval_)
     params = {
         'symbol': SYMBOL,
         'interval': interval_,
-        'limit': LIMIT
+        'limit': LIMIT,
+        'startTime': start_time
     }
     if start_time:
         params['startTime'] = start_time
@@ -67,16 +69,16 @@ def fetch_full_binance_data(date_str, interval_str):
 
     # !!!!!!!!!!!!!!!!!!trebuie sa compun api ul binance
 
-    # while len(all_data) < total_candles:
-    #     data = get_binance_data(start_time)
-    #     if not data:
-    #         break
-    #
-    #     all_data.extend(data)
-    #     start_time = data[-1][0] + 1
-    #     request_count += 1
-    #
-    #     print(f"Downloaded {len(all_data)} / {total_candles} candles...")
+    while len(all_data) < total_candles:
+        data = get_binance_data(interval_str,start_time)
+        if not data:
+            break
+
+        all_data.extend(data)
+        start_time = data[-1][0] + 1
+        request_count += 1
+
+        print(f"Downloaded {len(all_data)} / {total_candles} candles...")
 
         # if request_count % request_limit == 0:
         #     print("Rate limit reached. Waiting for 60 seconds...")

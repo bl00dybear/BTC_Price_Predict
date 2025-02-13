@@ -15,7 +15,7 @@ def create_dataset(interval_str, date_str):
 
 if __name__ == "__main__":
 
-    timestamp = input("Timestamp: ")
+    timestamp = input("Interval: ")
     date = input("Date: ")
     print(timestamp, date)
     create_dataset(timestamp, date)
